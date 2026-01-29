@@ -1,0 +1,21 @@
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class RetrieverAgent {
+    private RankingAgent rankingAgent;
+
+    public RetrieverAgent(RankingAgent rankingAgent) {
+        this.rankingAgent = rankingAgent;
+    }
+
+    public List<String> retrieve(String query, List<String> docs, int k) {
+        Map<String, Integer> scores = rankingAgent.scoreDocuments(query, docs);
+
+        return scores.entrySet()
+                .stream()
+                .sorted((a, b) -> Integer.compare(b.getValue(), a.getValue()))
+                .limit(k)
+                .map(Map.Entry::getKey)
+                .collect(Collectors.toList());
+    }
+}
