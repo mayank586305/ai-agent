@@ -1,0 +1,10 @@
+java-multi-agent-assistant
+├─ src
+│  └─ main
+│     ├─ java
+│     │  └─ (all your .java classes here: Main, AgentOrchestrator, etc.)
+│     └─ resources
+│        └─ app.properties
+├─ pom.xml
+├─ Dockerfile
+└─ README.md
