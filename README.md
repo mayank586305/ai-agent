@@ -1,16 +1,30 @@
-# Java Multi-Agent Research Assistant
+# Java Multi-Agent Assistant
 
-This project demonstrates a simple multi-agent system in Java:
+A simple multi-agent research assistant written in Java.
 
-- RetrieverAgent: selects relevant documents from a small knowledge base
-- SummarizerAgent: combines the retrieved documents into a concise answer
+Agents:
+- QueryPlannerAgent: decides how many documents to fetch
+- RankingAgent: scores documents against the query
+- RetrieverAgent: selects the most relevant documents
+- SummarizerAgent: combines retrieved documents into a concise answer
+- ResponseFormatterAgent: formats the final output
+- AgentOrchestrator: coordinates the full pipeline
 
-Use case:
-Automates basic research and question answering over a local document set instead of manually searching documents.
+Use case
 
-Extent of help:
-The agent separation (retrieval + summarization) makes the workflow modular and easy to extend with embeddings, vector search, or LLMs. Queries return instant answers rather than requiring manual lookup.
+Automates question answering over a local document store. Instead of manually searching documents, the system retrieves and summarizes relevant information in real time.
 
-Run:
-javac MultiAgentApp.java
-java MultiAgentApp
+Extent of help
+
+The agent pipeline splits the task into planning, retrieval, ranking, and summarization steps. This modular design makes it easy to extend with embeddings, vector search, or LLM-based summarization, and reduces manual lookup time to instant responses.
+
+## Build and run locally
+
+Requirements:
+- Java 11+
+- Maven 3.8+
+
+Build the runnable JAR:
+
+```bash
+mvn clean package
